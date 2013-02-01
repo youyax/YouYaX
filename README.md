@@ -1,10 +1,12 @@
-Program Name:YouYaX
+Program Name: YouYaX
 
 Uses: php community
 
-Author:YouCle
+Author: YouCle
 
-Donate:(If this program is to help you can donate, Paypal account: xujinliang1227@163.com)
+Demo Website: http://www.youyax.com/forum/
+
+Donate: (If this program is to help you can donate, Paypal account: xujinliang1227@163.com)
 
 Feature:
 
