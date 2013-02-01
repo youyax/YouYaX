@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>网站管理</title>
+	<style type="text/css">
+		a:active{color:#545ce4}
+		a:visited{color:#545ce4}
+		a:link{color:#545ce4}
+		a:hover{color:#993300}
+		a{text-decoration:none;}
+		table{ border-collapse:collapse;}
+		td{border-color:#e3e6eb}
+		.tr0{background:#f3f3f3}
+		.tr1{background:#ffffff}
+		.hovertr{background:#fff9ee}
+.button{
+	font-family: sans-serif;
+text-decoration: none;
+font-size: 14px!important;
+line-height: 16px;
+padding: 6px 12px;
+cursor: pointer;
+border: 1px solid #BBB;
+color: #464646;
+-webkit-border-radius: 15px;
+border-radius: 15px;
+-moz-box-sizing: content-box;
+-webkit-box-sizing: content-box;
+box-sizing: content-box;
+}
+	</style>
+	<script type="text/javascript">
+	function addClass(_this){
+			if(_this.className){
+				_this.className+=" "+"hovertr";
+			}
+		}
+		function removeClass(_this){
+			 _this.className = _this.className.replace(new RegExp("hovertr", "g"), "");
+		}
+		 document.onreadystatechange = function()
+     {           
+     if (document.readyState == "complete")
+      {
+       	parent.parent.document.getElementById("bg").innerHTML="";	
+parent.parent.document.getElementById("bg").style.display="none";	
+if(document.getElementById("message"))
+				{
+					document.getElementById("message").style.display='block';
+			 	setTimeout(function(){
+			 	for(var n=1;n<=40;n++)
+			 	{
+			 		(function(){
+			 			var i=n;
+			 			setTimeout(function(){
+			 				if(i==40){
+			 					document.getElementById("message").style.display='none';
+			 				}
+							document.getElementById("message").style.height=(40-i)+"px";
+			 			},(i+1)*50);
+			 		})();
+			 	}
+			},2000);
+		}
+				var url=self.parent.frames["main"].location.href;
+				var url_array=url.split("=");
+				var page=url_array[1];
+				var uclass=document.getElementsByTagName("a");
+				for(var n in uclass)
+				{
+					if(uclass[n].id==page&&uclass[n].id!=undefined)
+					{
+						uclass[n].style.background="#f2d699";
+					}
+				}
+      }
+     }
+    </script>
+</head>
+<body>
+		<?php
+if($_SESSION['youyax_error']==1)
+{
+?>
+<div id="message" style="width:96%;overflow:hidden;margin:auto;background:url('{site}/Public/images/message_green.gif');color:#6da827;height:40px;line-height:40px;font-size:16px;font-weight:bold;font-family:Tahoma;padding-left:10px;">
+	操作成功！
+</div>
+<?php
+}if($_SESSION['youyax_error']==2)
+{
+?>
+<div id="message" style="width:96%;overflow:hidden;margin:auto;background:url('{site}/Public/images/message_red.gif');color:#ce2700;height:40px;line-height:40px;font-size:16px;font-weight:bold;font-family:Tahoma;padding-left:10px;">
+	操作失败！
+</div>
+<?php
+}
+unset($_SESSION['youyax_error']);
+?>
+<form name="form" action="__APP__/admin{url}doseoset{shtml}" method="post">
+	<table width=96% height="auto" cellspacing=0 cellpadding=0 border=1 style="margin:auto;border:1px solid #ccc">
+		<tr onmouseover="addClass(this)" onmouseout="removeClass(this)">
+			<td height="40" colspan="2" style="line-height:40px;background:url('{site}/Public/images/topbg.jpg')"><span style="font-family:Arial;font-size:17px;color:#222;font-weight:bold;">SEO配置</span></td>
+		</tr>
+		<tr onmouseover="addClass(this)" onmouseout="removeClass(this)">
+			<td height="30" width="120" style="line-height:30px;font-family:Arial;font-size:15px;color:#222;">SEO状态</td>
+			<td height="30">
+				<select name="seostatus" style="width:100px;">
+					<option value="off"<?php if("{config->seo_set}"=="off") echo "selected";?>>关闭</option>
+					<option value="on" <?php if("{config->seo_set}"=="on")  echo "selected";?>>开启</option>
+				</select></td>
+		</tr>
+		<tr onmouseover="addClass(this)" onmouseout="removeClass(this)">
+			<td height="30" width="120" style="line-height:30px;font-family:Arial;font-size:15px;color:#222;">说明</td>
+			<td height="30">
+				UrlRewrite有利于搜索引擎的收录，写在httpd.ini或.htaccess文件中<br>
+				如果文件位于"forum"目录中<br>
+				httpd.ini写法
+				<code style="font-family: Monaco, Verdana, Sans-serif;font-size: 14px;background-color: #F9F9F9;border: 1px solid #D0D0D0;color: #002166;display: block;padding: 12px 10px 12px 10px;">
+					[ISAPI_Rewrite]<br>
+					RewriteRule ^/forum/(<font color=red>(Index|List|Content|admin|Vote|Message)</font>.*)$ /forum/index\.php/$1 [L]					
+				</code>
+				.htaccess写法
+				<code style="font-family: Monaco, Verdana, Sans-serif;font-size: 14px;background-color: #F9F9F9;border: 1px solid #D0D0D0;color: #002166;display: block;padding: 12px 10px 12px 10px;">
+					RewriteEngine on<br>
+					RewriteRule ^/forum/(<font color=red>(Index|List|Content|admin|Vote|Message)</font>.*)$ /forum/index\.php/$1 [L]					
+				</code>
+				如果文件位于根目录中
+				<code style="font-family: Monaco, Verdana, Sans-serif;font-size: 14px;background-color: #F9F9F9;border: 1px solid #D0D0D0;color: #002166;display: block;padding: 12px 10px 12px 10px;">
+					RewriteRule ^/(<font color=red>(Index|List|Content|admin|Vote|Message)</font>.*)$ /index\.php/$1 [L]					
+				</code>
+				注意：括号里加入控制器名称,用"|"间隔,且论坛目录不能含有与控制器名称同名的文件夹
+			</td>
+		</tr>
+   <tr>
+			<td height="40" colspan="2" align="left"><input name="submit" type="submit" value="提交" class="button" /></td>
+		</tr>
+	</table>
+	</form>
+	<script>
+		var tr=document.getElementsByTagName("tr");
+		for(var n=0;n<tr.length;n++)
+		{
+			if(n%2==0&&n!=0)
+			{
+				tr[n].className="tr0";	
+			}else{
+				tr[n].className="tr1";	
+			}
+		}
+	</script>
+</body>
+</html>

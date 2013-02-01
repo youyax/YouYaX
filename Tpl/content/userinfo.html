@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<title>用户资料显示--YouYaX开源论坛</title> 
+<style type="text/css">
+	body{font-family:Arial;font-size:12px;}
+</style>
+</head> 
+ 
+<body bgcolor="#fefcf4"  bgproperties='fixed' text='#000000' leftmargin='15' topmargin='0' marginwidth='15' marginheight='0'> 
+<br><br> 
+<center> 
+ 
+<table width=600 border=0 bgcolor=#dddddd cellPadding=6 cellspacing=0   class='f06'> 
+	<tr> 
+		<td align=center > 
+		用 户 资 料
+		</td> 
+	</tr> 
+</table> 
+ 
+<table width=600 border=0 bgcolor=#fafafa cellpadding='6' cellspacing='0' class='f01' > 
+	
+	<tr> 
+		<td colspan=3 align=center>基本信息</td>
+	</tr>	
+	<tr  > 
+		<td align=center width=100> 
+		登录名
+		</td> 
+		<td width=300 align=left> 
+		&nbsp;	
+		{uinfo->user}&nbsp;<?php if("{uinfo->status}"==1) echo '(<span style="color:green">正常</span>)'; ?>
+		<?php if("{uinfo->status}"==2) echo '(<span style="color:red">禁止发言</span>)'; ?>
+		</td> 
+		<td align=center width=200 rowspan=5> 
+&nbsp;	
+		<img src="{site}/Public/pic/{uinfo->face}"  width=75 height=75><br> 
+		</td>				
+	</tr> 
+	
+	<tr> 
+                <td align=center width=100> 
+                注册日期
+                </td> 
+                <td width=500 colspan=2 align=left> 
+ &nbsp;	              {uinfo->time}
+                </td> 
+        </tr>			
+        
+		<tr> 
+                <td align=center width=100> 
+                当前状态
+                </td>
+                <td width=500 colspan=2 align=left> 
+ &nbsp;	              {onlineinfo}
+                </td> 
+        </tr>			
+ <tr> 
+                <td align=center width=100> 
+                在线IP地址
+                </td>
+                <td width=500 colspan=2 align=left> 
+ &nbsp;	              {ipinfo}
+                </td> 
+        </tr>		
+	<tr> 
+		<td align=center width=100> 
+		主题数
+		</td> 
+		<td width=300 align=left> 
+	&nbsp;{uinfo->fatieshu}
+		</td>	
+	</tr> 
+	
+	<tr> 
+		<td align=center width=100> 
+		最近发表主题
+		</td> 
+		<td width=500 colspan=2 align=left> 
+		<list>
+			<div style="margin-bottom:20px;text-overflow:ellipsis;white-space:nowrap; overflow:hidden;width:300px;">
+				<a title="{tinfo.title|strip_tags}" style="color:#cba227;" href="__APP__/Content{url}index{url}id{url}{tinfo.id}{shtml}">{tinfo.title}</a>
+			</div>
+		</list>
+		</td>	
+	</tr>			
+</table> 
+ 
+</center> 
+</html>

@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>YouYaX开源论坛管理</title>
+	<style type="text/css">
+		*{margin:0px;padding:0px;}
+		body{-moz-user-select: none; -khtml-user-select: none; user-select: none;}
+		a:active{color:#545ce4;}
+		a:visited{color:#545ce4;}
+		a:link{color:#545ce4;}
+		a:hover{color:#993300;}
+		a{text-decoration:none;}
+		#menu{margin:0px;padding:0px;float:left;width:186px;}
+		#menu>li{list-style-type:none;margin:0px;padding:0px;width:186px;}
+		#menu>li span{font-size:20px;color:#dbdbdb;width:186px;height:30px;display:inline-block;background-color:#303030;line-height:30px;font-weight:700;}
+		.childmenu{width:186px;overflow:hidden;margin:0px;padding:0px;}
+		.childmenu li{margin:0px;padding:0px;width:180px;height:30px;list-style-type:none;border:1px solid #d7dcdd;line-height:30px;}
+		.childmenu  a{color:#888888;font-weight:bold;font-size:13px;font-family:Tahoma;}
+		#menu span{cursor:pointer;}
+	</style>
+	<script type="text/javascript">
+		function show(n)
+		{
+			parent.parent.document.getElementById("bg").style.cssText="position:absolute;left:0px;top:0px;width:100%;height:200%;z-index:9;background:#c3c3c3;filter:alpha(opacity=80);-moz-opacity:0.8;-khtml-opacity: 0.8;opacity: 0.8;display:block";
+			parent.parent.document.getElementById("bg").innerHTML="<img src='{site}/Public/images/waiting.gif' style=\"margin-left:280px;margin-top:30px;\">";
+			if(n==0)
+				self.parent.frames["main"].location.href="__APP__/admin{url}block{shtml}";
+			if(n==1)
+				self.parent.frames["main"].location.href="__APP__/admin{url}admin{shtml}";
+			if(n==2)
+				self.parent.frames["main"].location.href="__APP__/admin{url}mark1{shtml}";
+			if(n==3)
+				self.parent.frames["main"].location.href="__APP__/admin{url}mark2{shtml}";
+			if(n==4)
+				self.parent.frames["main"].location.href="__APP__/admin{url}reply{shtml}";
+			if(n==5)
+				self.parent.frames["main"].location.href="__APP__/admin{url}talk{shtml}";
+			if(n==6)
+				self.parent.frames["main"].location.href="__APP__/admin{url}user{shtml}";
+			if(n==7)
+				self.parent.frames["main"].location.href="__APP__/admin{url}talk_vote{shtml}";
+			if(n==8)
+				self.parent.frames["main"].location.href="__APP__/admin{url}vote_ip{shtml}";
+			if(n==9)
+				self.parent.frames["main"].location.href="__APP__/admin{url}setting{shtml}";
+			if(n==10)
+				self.parent.frames["main"].location.href="__APP__/admin{url}mailset{shtml}";
+			if(n==11)
+				self.parent.frames["main"].location.href="__APP__/admin{url}seoset{shtml}";
+		}
+	</script>
+</head>
+<body style="font-family:Tahoma;background:#ffffff">
+<ul id="menu">
+<li><span>我的网站</span>
+			<ul class="childmenu" style="margin-top:10px;margin-left:2px;padding:0px;">
+				<li><a href="javascript:void(0)" target="main" list="0">版块设置</a></li>
+				<li><a href="javascript:void(0)" target="main" list="1">管理员查询</a></li>
+				<li><a href="javascript:void(0)" target="main" list="2">楼主评分查询</a></li>
+				<li><a href="javascript:void(0)" target="main" list="3">楼下评分查询</a></li>
+				<li><a href="javascript:void(0)" target="main" list="4">回复帖子查询</a></li>
+				<li><a href="javascript:void(0)" target="main" list="5">发布帖子查询</a></li>
+				<li><a href="javascript:void(0)" target="main" list="6">注册用户查询</a></li>
+				<li><a href="javascript:void(0)" target="main" list="7">主题--投票查询</a></li>
+				<li><a href="javascript:void(0)" target="main" list="8">投票--IP查询</a></li>
+				<li><a href="javascript:void(0)" target="main" list="9">网站常规配置</a></li>
+				<li><a href="javascript:void(0)" target="main" list="10">激活邮件配置</a></li>
+				<li><a href="javascript:void(0)" target="main" list="11">SEO设置</a></li>
+			</ul>
+		</li>
+		<li><span>其他服务</span>
+			<ul class="childmenu" style="margin-top:10px;margin-left:2px;padding:0px;">
+				<li><a href="http://www.youyax.com" target="_blank" list="x1">访问作者网站</a></li>
+				<li><a href="mailto:xujinliang1227@163.com" list="x2">邮件联系作者</a></li>
+			</ul>
+		</li>
+	</ul>
+	<script>
+	var menua=document.getElementById("menu").getElementsByTagName("a");
+		for(var i=0;i<menua.length;i++){
+			menua[i].onclick=function(e){
+				var event=e||window.event;
+				var target=event.srcElement||event.target;
+				var menuli=document.getElementById("menu").getElementsByTagName("li");
+				for(var k=0;k<menuli.length;k++){
+					menuli[k].style.background="#ffffff";
+				}
+				if(target.getAttribute("list")!="x1"&&target.getAttribute("list")!="x2"){
+					this.parentNode.style.background="#ededed";
+					show(target.getAttribute("list"));
+				}
+			}
+		}
+	</script>
+</body>
+</html>

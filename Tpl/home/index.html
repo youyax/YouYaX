@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+		<link rel="icon" href="./favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+	<link rel="bookmark" href="./favicon.ico" type="image/x-icon">
+  
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<title>{site_config->site_title}</title>
+		<meta name="keywords" content="{site_config->site_keywords}">
+		<meta name="description" content="{site_config->site_description}">
+<script type="text/javascript" src="{site}/Public/JScript/public.js"></script>
+<script type="text/javascript" src="{site}/Public/JScript/Tip.js"></script>
+<script type="text/javascript" src="{site}/Public/JScript/online.js"></script>
+<script type="text/javascript" src="{site}/Public/JScript/location.js"></script>
+<script type="text/javascript" src="{site}/Public/JScript/reglog.js" defer="true"></script>
+<script type="text/javascript" src="{site}/ORG/Move/level.js"></script>
+<style>
+	*{margin:0px;padding:0px}
+	html{-webkit-text-size-adjust:none;}
+	a{text-decoration:none;color:#551a8b}
+	td{border:1px solid #dfdfdf}
+	#move td{border:none;white-space:nowrap;font-size:34px;line-height:50px;font-family:'华文新魏';font-weight:bold;color:#ff0000;}
+	#ellipsis{list-style-type: none;width:250px;margin:0px;padding:0px;float:left;margin-top:5px;}
+	#ellipsis li{list-style-type: none;text-overflow:ellipsis;white-space:nowrap; overflow:hidden;width:250px;margin:0px;padding:0px;}
+	#wrapper{width:960px;position:relative;left:50%;margin-left: -480px;border-radius:10px; -moz-border-radius: 10px;-khtml-border-radius: 10px;-webkit-border-radius:10px;box-shadow: rgb(239, 249, 225) 0px 0px 100px; -webkit-box-shadow: rgb(239, 249, 225) 0px 0px 100px;}
+</style>
+	</head>
+	<body style="font-family:Arial;background:#fefcf4;font-size:12px;">
+		<div id="register" style="display:none;">
+			<div id="rt" align="right" style="width:100%;height:20px;background-color:#f1f7da;cursor:move;"><b style="cursor:pointer;">关闭</b></div>
+			<iframe src="{site}/ext/register.php" width="100%" height="180" frameborder="0"></iframe>
+		</div>
+		<div id="login" style="display: none; ">
+			<div id="lt" align="right" style="width:100%;height:20px;background-color:#f1f7da;cursor:move;"><b style="cursor:pointer;">关闭</b></div>
+			<iframe src="{site}/ext/login.php" width="100%" height="180" frameborder="0"></iframe>
+		</div>
+	<?php
+	if("{site_config->site_logo}"!=''){
+	?>
+	<center>
+	<div align="left" style="width:960px;">
+		<a href="{site}"><img id="imgtop" src="{site_config->site_logo}" border=0></a>
+	</div>
+  </center>
+	<?php
+		}
+	?>	
+	<div id="wrapper">
+		<div align="right" id="one" style="display:<?php echo ('{bz}'=='0') ? 'block' : 'none'; ?>;background-color:#dfdfdf; width: 100%; height: 30px; line-height: 30px;background-position: initial initial; background-repeat: initial initial;border-top-left-radius: 10px; border-top-right-radius: 10px;">
+			<span onclick="getonline()" style="cursor:pointer;float:left;margin-left:8px;">当前在线人数: {count}</span>
+			<span id="a1" style="cursor:pointer">注册</span>&nbsp;&nbsp;<span id="a2" style="cursor:pointer">登陆</span>&nbsp;&nbsp;
+		</div>	
+		
+		<div align="right" id="two" style="display:<?php echo ('{bz}'=='1') ? 'block' : 'none'; ?>;background-color:#dfdfdf; width: 100%; height: 30px; line-height: 30px;background-position: initial initial; background-repeat: initial initial;border-top-left-radius: 10px; border-top-right-radius: 10px;">
+		<span onclick="getonline()" style="cursor:pointer;float:left;margin-left:8px;">当前在线人数: {count}</span>
+		{user},<a href="__APP__/Index{url}self{shtml}">个人中心</a>,<a href="__APP__/Index{url}logout{shtml}">退出</a>&nbsp;&nbsp;
+		</div>
+		<div id="nav_notice" style="display:{message_status};z-index:9999;position:absolute;left:874px;top:26px;width:100px;height:24px;background:#ffffda;border:1px solid #d1b07c">
+			<span style="height:20px;position:absolute;top:-18px;top:-14px\9;left:10px;color:#ffffda;font-size:30px;overflow:hidden;">◆</span>
+			<div style="font-size:12px;margin-top:5px;margin-left:5px;"><a href="__APP__/Message{url}show{shtml}">您收到新消息了</a></div>
+		</div>
+<center>
+<div id="move" style="background:url('{site}/Public/images/led.png');"></div>
+	<script type="text/javascript">Move_level("move",960,50,"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PHP免费开源社区系统，开放、自由，全新架构，代码写法优雅，欢迎体验~");</script>
+</center>
+<table width=960 cellspacing=0 cellpadding=0 border=1 style="border-collapse:collapse;border:3px solid #dfdfdf;">
+	<?php
+if(!empty($this->array_array['data_big'])){
+	foreach($this->array_array['data_big'] as $k => $n){  		 
+?>
+				<tr height=30>
+					<td width=500 style="background-color:#fefcec;filter:alpha(opacity=20);-moz-opacity:0.2;-khtml-opacity: 0.2;opacity: 0.2;"><b><i><?php echo $n; ?></i></b></td><td width=100px style="background-color:#fefcec;filter:alpha(opacity=20);-moz-opacity:0.2;-khtml-opacity: 0.2;opacity: 0.2;">主题</td><td width=100px style="background-color:#fefcec;filter:alpha(opacity=20);-moz-opacity:0.2;-khtml-opacity: 0.2;opacity: 0.2;">帖子</td><td width=260 style="background-color:#fefcec;filter:alpha(opacity=20);-moz-opacity:0.2;-khtml-opacity: 0.2;opacity: 0.2;">最新文章</td>
+				</tr>
+<?php
+if(!empty($this->array_two['data_block'])){
+ foreach($this->array_two['data_block'] as $v){
+ 	if($v['bid']!=$k) continue;
+?>
+				<tr height=50 style="background-color:#f4f5f7">
+					<td valign=top width=500 height=50>
+						<table border=0 height=100% cellspacing=0 cellpadding=0 width="96%">
+							<tr><td style="border:none" align="right"><a style="float:left;font-weight:bold;text-decoration:none" href="__APP__/List{url}index{url}f{url}<?php echo $v['id']; ?>{shtml}"><?php echo $v['szone'];?></a>&nbsp;&nbsp;<span style="margin-right:10px;font-size:12px;font-weight:bold;color:red"><?php if($this->array['today'.$v['id']]!=0) echo "(今日发贴:".$this->array['today'.$v['id']].")";?></span></td></tr>
+							<tr><td style="border:none;font-size:12px;color:#999999"><?php echo $v['mark']; ?></td></tr>
+						</table>
+					</td><td width=100><?php echo $this->array['zhuti'.$v['id']];?></td><td width=100><?php echo $this->array['tiezi'.$v['id']];?></td><td valign=top width=260 style="font-size:12px;"><ul id="ellipsis"><li><a title="<?php echo strip_tags($this->array_array['arc'.$v['id']]['title']);?>" href="__APP__/Content{url}index{url}id{url}<?php echo $this->array_array['arc'.$v['id']]['id'];?>{shtml}"><?php echo $this->array_array['arc'.$v['id']]['title'];?></a></li></ul><span style="font-size:10px;"><?php echo $this->array_array['arc'.$v['id']]['timeup'];?></span></td>
+				</tr>
+<?php
+  	}
+  }
+ }
+}
+?>
+			</table>
+	</div>
+	<center>
+		<div style="width:960px;height:12px;margin-top:14px;display:table;">
+			<p style="font-family: 'Microsoft YaHei',微软雅黑,Tahoma,Helvetica,sans-serif;float:left;text-align:left;color:#666;font-size:12px;font-weight: bold;">{site_config->site_foot}<br><span style="font-weight:normal">新社区新活力</span></p>
+			<ul style="float:right;margin:0px;padding:0px;">
+				<li style="display: inline;"><a style="font-family: 'Microsoft YaHei',微软雅黑,Tahoma,Helvetica,sans-serif;font-size: 12px;color:#666;line-height: 26px;padding: 0 4px;" href="mailto:xujinliang1227@163.com">联系我</a></li>|
+				<li style="display: inline;"><a style="font-family: 'Microsoft YaHei',微软雅黑,Tahoma,Helvetica,sans-serif;font-size: 12px;color:#666;line-height: 26px;padding: 0 4px;" href="http://www.youyax.com">官网</a></li>|
+				<li style="display: inline;"><a style="font-family: 'Microsoft YaHei',微软雅黑,Tahoma,Helvetica,sans-serif;font-size: 12px;color:#666;line-height: 26px;padding: 0 4px;" href="https://me.alipay.com/youcle">收款主页</a></li>
+		</ul>
+		</div>
+		<div style="width:960px;height:20px;"></div>
+	</center>
+</body></html>

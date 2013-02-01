@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<title>个人资料</title>
+	<script type="text/javascript">
+	document.onreadystatechange = function(){           
+    if (document.readyState == "complete"){
+				var url=window.location.href;
+				var url_array=url.split("=");
+				var page=url_array[1];
+				var uclass=document.getElementsByTagName("a");
+				for(var n in uclass)
+				{
+					if(uclass[n].id==page&&uclass[n].id!=undefined)
+					{
+						uclass[n].style.background="#f2d699";
+					}
+				}
+	}
+}
+	</script>
+<style type="text/css">
+	*{margin:0;padding:0}
+	html{-webkit-text-size-adjust:none;}
+	body{text-align:center;font-family:Arial;}
+	#wrap{margin:0 auto;width:700px;border:1px dashed #a7a6aa;display:table;background:#ffffff;}
+	#main{width:600px;min-height:1px;float:left;display:block}
+	#sidebar{width:98px;float:left;}
+	#sidebar ul{margin:0;padding:0;}
+	#sidebar ul li{width:98px;list-style-type:none;text-align:left;line-height:30px;}
+	#sidebar ul li a{color:#cc9966;font-size:13px;font-weight:bold;text-decoration:none;}
+	table{ border-collapse:collapse;}
+			a:active{color:#545ce4}
+			a:visited{color:#545ce4}
+			a:link{color:#545ce4}
+			a:hover{color:#993300}
+			a{text-decoration:none;}
+		.u1{list-style-type: none;width:600px;margin:0px;padding:0px;height:30px;float:left;}
+		.u1 li{list-style-type: none;display:inline-block;font-size:14px;margin:0px;padding:0px;height:30px;float:left;line-height:30px;}
+		.li{text-overflow:ellipsis;white-space:nowrap; overflow:hidden;}
+</style>
+	</head>
+	<body bgcolor="#fefcf4">
+	<div id="wrap">
+			<h5>个人中心</h5>
+			<div id="main">
+				<h3>发表帖子</h3>
+			<div style="width:600px;text-align:right;">{page}</div>
+		  <ul class="u1">
+		  	<li class="li" style="width:400px;text-align:left">主题</li><li style="width:100px;text-align:center;">发表时间</li><li style="width:100px;text-align:center">最后回复</li>
+		  </ul>
+		<list>
+		<ul class="u1">
+		  	<li class="li" style="width:400px;text-align:left"><a title="{mypubinfo.title|strip_tags}" href="__APP__/Content{url}index{url}id{url}{vo.id}{shtml}">{mypubinfo.title}</a></li>
+		  	<li style="width:100px;text-align:center;font-size:10px;">{mypubinfo.time1}</li>
+		  	<li style="width:100px;text-align:center;font-size:12px;">{mypubinfo.zuozhe1}</li>
+		  </ul>
+		</list>  
+    </div>
+    <div id="sidebar">
+    	<ul>
+    		<li><a href="{site}"><font color=red>退出</font></a></li>
+    		<li><a href="__APP__/Index{url}self{shtml}">个人资料</a></li>
+    		<li><a href="__APP__/Index{url}chpsd{shtml}">更改密码</a></li>
+    		<li><a href="__APP__/Message{url}show{shtml}">我的消息</a></li>
+    		<li><a href="__APP__/Index{url}mypub{shtml}">发布帖子</a></li>
+    		<li><a href="__APP__/Index{url}myrep{shtml}">回复帖子</a></li>
+    	</ul>
+    </div>
+  </div>
+  <script>
+  	var uls=document.getElementById("main").getElementsByTagName("ul");
+  	for(var i=0;i<uls.length;i++){
+  		if(i%2==0){
+  			uls[i].style.background="#f4f5f7";
+  		}
+  	}
+  </script>
+  <div id="foot" style="margin-bottom:10px;color:#a5a5a5;text-align:center;font-size:12px;font-family:Tahoma;height:14px;line-height:12px;">{site_config->site_foot}</div>
+   </body>
+</html>
+           

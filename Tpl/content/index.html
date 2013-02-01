@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<script type="text/javascript" src="{site}/ORG/UBB/ORG/UBB/edit.js"></script>
+		<link rel="stylesheet" href="{site}/ORG/UBB/ORG/UBB/edit.css" type="text/css">
+		<link rel="stylesheet" title="Default" href="{site}/Public/JScript/highlight/styles/default.css">
+		<script type="text/javascript" src="{site}/Public/JScript/highlight/highlight.pack.js"></script>
+		<script type="text/javascript" src="{site}/Public/JScript/public.js"></script>
+		<script type="text/javascript" src="{site}/Public/JScript/Tip.js"></script>
+		<script type="text/javascript" src="{site}/Public/JScript/xiangxi.js"></script>
+		<script type="text/javascript" src="{site}/Public/JScript/cookie.js"></script>
+		<script type="text/javascript" src="{site}/Public/JScript/scrolltop.js"></script>
+		<script>
+  hljs.tabReplace = '    ';
+  hljs.initHighlightingOnLoad();
+  </script>
+		<style type="text/css">
+			body{font-family:Arial;}
+			a{color:#993399;text-decoration:none}
+			table{ border-collapse:collapse;}
+			td{text-align: left;}
+			::-webkit-input-placeholder{color:#c12519;font-family:Arial;font-size:13px;}
+			:-moz-placeholder{color:#c12519;font-family:Arial;font-size:13px;}
+			.no-user-select {
+              -moz-user-select: none; 
+              -webkit-user-select: none; 
+              -ms-user-select: none;
+            }
+::selection { color:#fff; background-color:#639631;}
+::-moz-selection { color:#fff; background-color:#639631;}
+::-webkit-selection { color:#fff; background-color:#639631;}
+		</style>
+			<title>{data1_0}--{site_config->site_title}</title>
+	</head>
+	<body style="background:#fefcf4">
+		<center>
+			<?php
+				$num=0;
+			?>			
+			<table border=0 cellspacing=0 cellpadding=0 style="width:830px;border:1px dashed #a7a6aa">
+				<tr>
+					<td colspan=3 align="right" style="text-align:right"><span style="float:left"><a style="color:#002d93;text-decoration:none;font-weight:700" href="{site}">主页</a>&nbsp;>><a  style="color:#002d93;text-decoration:none;font-weight:700"  href="__APP__/List{url}index{url}f{url}{fqlink}{shtml}">{fq->szone}</a></span>
+					<img  src="{site}/Public/images/red.png" title="删除回复帖"  onclick="createDiv()">
+	<img src="{site}/Public/images/yellow2.png" title="显示10条记录" onclick="setcookie2('yellow2')">
+	<img  src="{site}/Public/images/shallow.png" title="显示15条记录" onclick="setcookie2('shallow')">
+	<img src="{site}/Public/images/blue.png" title="显示20条记录(默认)" onclick="setcookie2('blue')">
+	<img  src="{site}/Public/images/green.png" title="主帖无滚动条" onclick="setcookie('green')">
+	<img src="{site}/Public/images/yellow.png" title="主帖现滚动条" onclick="setcookie('yellow')">
+					<!--分享到tencent-->							
+	<span>
+			<script type="text/javascript" charset="utf-8">
+(function(){
+  var _w = 16 , _h = 16;
+  var param = {
+    url:location.href,
+    type:'3',
+    count:'', /**是否显示分享数，1显示(可选)*/
+    appkey:'', /**您申请的应用appkey,显示分享来源(可选)*/
+    title:'', /**分享的文字内容(可选，默认为所在页面的title)*/
+    pic:'', /**分享图片的路径(可选)*/
+    ralateUid:'1955839363', /**关联用户的UID，分享微博会@该用户(可选)*/
+	language:'zh_cn', /**设置语言，zh_cn|zh_tw(可选)*/
+    rnd:new Date().valueOf()
+  }
+  var temp = [];
+  for( var p in param ){
+    temp.push(p + '=' + encodeURIComponent( param[p] || '' ) )
+  }
+  document.write('<iframe allowTransparency="true" frameborder="0" scrolling="no" src="http://hits.sinajs.cn/A1/weiboshare.html?' + temp.join('&') + '" width="'+ _w+'" height="'+_h+'"></iframe>')
+})()
+</script>								
+								<script type="text/javascript">document.write(['<a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=',encodeURIComponent(location.href),'&title=',encodeURIComponent(document.title),'" target="_blank"  title="分享到QQ空间"><img border=0 src="http://qzonestyle.gtimg.cn/ac/qzone_v5/app/app_share/qz_logo.png" alt="分享到QQ空间" /><\/a>'].join(''));</script>
+								<a href="javascript:;"  class="tmblog" id="share_btn_1328182983595" onclick="postToWb()"><img   src="http://static.bshare.cn/frame/images/logos/s4/qqmb.png" border="0" title="转播到腾讯微博"></a>
+<script>
+function postToWb(){
+	var _url = encodeURIComponent(location.href);
+	var _pic = encodeURI('');//（例如：var _pic='图片url1|图片url2|图片url3....）
+	var _t = '';//标题和描述信息
+	var metainfo = document.getElementsByTagName("meta");
+	for(var metai = 0;metai < metainfo.length;metai++){
+		if((new RegExp('description','gi')).test(metainfo[metai].getAttribute("name"))){
+			_t = metainfo[metai].attributes["content"].value;
+		}
+	}
+	_t =  document.title+_t;//请在这里添加你自定义的分享内容
+	if(_t.length > 120){
+		_t= _t.substr(0,117)+'...';
+	}
+	_t = encodeURI(_t);
+	var _u = 'http://share.v.t.qq.com/index.php?c=share&a=index&url='+_url+'&appkey=801093235&pic='+_pic+'&assname=xjl756425616&title='+_t;
+	window.open( _u,'', 'width=700, height=680, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no' );
+};
+</script>
+					</span>
+						</td>						
+				</tr>
+					<tr>
+						<td colspan=3  style="text-align:right;height:22px;overflow:hidden;margin:0px;padding:0px;">
+							{showx}
+				 		</td>
+					</tr>
+			<?php
+					foreach($this->array_two['data1'] as $vo){
+						if($num==0){
+					?>					
+					<tr>
+						<td colspan=3 align="center" style="text-align:center"><span style="font-weight:800;font-size:24px;background:#aaabb6;color:#fff8f3"><?php echo preg_replace("/\[[^]]*]/","",strip_tags($vo['title'])); ?></span></td>
+					</tr>
+					<tr>
+						<td width=130 height=20 style="background-color:#f3bb93"><span onmouseover="showdiv(event)" onmouseout="hidediv()"><?php echo $vo['zuozhe'];?></span></td>
+	
+	<div id="czz1div" onmouseover="showdiv2()" onmouseout="hidediv2()" style="text-align:left;width:250px;display:none;position:absolute;z-index:99;border:1px solid #95b5d5;background:#ffffff">
+		<span  style="float:left;width:90px;display:inline-block">
+			<a href="javascript:void(0);" onclick="document.getElementById('quser').value='<?php echo $vo['zuozhe']; ?>';query_username.target='_blank';query_username.submit();"><img  src="{site}/Public/pic/<?php echo $vo['face'];?>" width=90 height=90 style="border:none"></a>
+		</span>
+		<span  style="float:left;display:inline-block;width:150px;margin-left:4px;margin-top:12px;">
+			<b style="font-size:12px;">军衔:
+							<?php if($vo['fatieshu1']< 30) echo '新兵'; ?>
+							<?php if($vo['fatieshu1']>= 30 && $vo['fatieshu1']< 80 ) echo '列兵'; ?>
+							<?php if($vo['fatieshu1']>= 80 && $vo['fatieshu1']< 150 ) echo '下士'; ?>	
+							<?php if($vo['fatieshu1']>= 150 && $vo['fatieshu1']< 240 ) echo '中士'; ?>	
+							<?php if($vo['fatieshu1']>= 240 && $vo['fatieshu1']< 350 ) echo '上士'; ?>	
+							<?php if($vo['fatieshu1']>= 350 && $vo['fatieshu1']< 480 ) echo '准尉'; ?>	
+							<?php if($vo['fatieshu1']>= 480 && $vo['fatieshu1']< 630 ) echo '少尉'; ?>	
+							<?php if($vo['fatieshu1']>= 630 && $vo['fatieshu1']< 800 ) echo '中尉'; ?>	
+							<?php if($vo['fatieshu1']>= 800 && $vo['fatieshu1']< 1000 ) echo '上尉'; ?>	
+							<?php if($vo['fatieshu1']>= 1000 && $vo['fatieshu1']< 1200 ) echo '大尉'; ?>	
+							<?php if($vo['fatieshu1']>= 1200 && $vo['fatieshu1']< 1400 ) echo '少校'; ?>	
+							<?php if($vo['fatieshu1']>= 1400 && $vo['fatieshu1']< 1600 ) echo '中校'; ?>		
+							<?php if($vo['fatieshu1']>= 1600 && $vo['fatieshu1']< 1800 ) echo '上校'; ?>
+							<?php if($vo['fatieshu1']>= 1800 && $vo['fatieshu1']< 2000 ) echo '大校'; ?>
+							<?php if($vo['fatieshu1']>= 2000 && $vo['fatieshu1']< 2500 ) echo '准将'; ?>
+							<?php if($vo['fatieshu1']>= 2500 && $vo['fatieshu1']< 3000 ) echo '少将'; ?>
+							<?php if($vo['fatieshu1']>= 3000 && $vo['fatieshu1']< 3500 ) echo '中将'; ?>
+							<?php if($vo['fatieshu1']>= 3500 && $vo['fatieshu1']< 4000 ) echo '上将'; ?>
+							<?php if($vo['fatieshu1']>= 4000 && $vo['fatieshu1']< 5000 ) echo '大将'; ?>
+							<?php if($vo['fatieshu1']>= 5000 ) echo '元帅'; ?></b>
+																								
+							<br><b style="font-size:12px;">注册时间:
+								<?php echo substr($vo['timezc1'],0,10);?></b>
+							<br><b style="font-size:12px;">发帖数:&nbsp;&nbsp;&nbsp; 
+								<?php echo $vo['fatieshu1'];?></b><br>
+								<b onclick="show('<?php echo $vo['zuozhe'] ?>')" style="cursor:pointer;font-size:12px;">短消息</b>
+						</span>
+	</div>
+	
+						<td  align="right" width=650 height=20 style="text-align:right;background:#f3bb93"><span style="font-size:12px;font-weight:bold;float:left">发表于:<?php echo $vo['time1'];?></span>
+	
+					
+							</td><td width=50  style="text-align:right;background-color:#f3bb93">楼主</td>
+					</tr>
+					<tr >
+						<td colspan=3 valign=top style="background-color:#ffffff">
+						<div style="width:828px;overflow:hidden">
+							<table width=100% height=154 cellspacing=0 cellpadding=0 border=0>
+								<tr ><td  valign=top style="background:#f8f8f8;line-height:30px">
+			<?php
+					if($_COOKIE['scrollbar']=='yellow')
+					{
+			?>
+							<div id="swrap" style="width:828px;height:300px;overflow:hidden;">
+								
+								<div id="scon" style="width:816px;float:left;position:relative;">
+			<?php
+					}
+			?>
+					<?php
+					  if(!empty($this->array_two['vote_options'])){
+					?>
+					<form action="__APP__/Vote{url}dovote{shtml}" method="post" name="form">
+							<fieldset style="font-size: 12px;border: 1px solid #CCC;padding: 0 10px 10px;margin: 10px;overflow-x: hidden;word-wrap: break-word;">
+							<legend>(投票主题){data1_0}</legend>
+							<ul style="margin:10px 10px;padding:0px;list-style-type:none">
+					<?php
+						$vnum=-1;
+						foreach($this->array_two['vote_options'] as $v){
+							$vnum++;
+						?>
+							<li style="height:30px;">
+								<input type="radio" name="vradio" value="<?php echo $vnum;?>">
+								<span style="min-width:100px;display:inline-block;"><?php echo $v['options'];?></span>
+								<span style="display:inline-block;background:#feb150;width:<?php echo $v['nums']*10;?>px;height:10px;"></span>
+								<span style="width:20px;display:inline-block;"><?php echo $v['nums'];?></span>									
+							</li>
+					<?php
+						}
+					?>
+							<span style="color:#00923f;background:#fefcec;font-size:13px;">总共有 {vote_nums} 个投票记录</span><br>
+							<input type="submit" name="votesub" value="我要投票" style="width:68px;height:22px;cursor:pointer;background:url('{site}/Public/images/button_vote.png');border:none;">
+							</ul>
+							</fieldset>
+							<input type="hidden" name="cid" value="{cid}">
+							<input type="hidden" name="vid" value="{vid}">
+							</form>
+					<?php
+					  }
+					?>
+					<?php echo $vo['content'];?>
+			<?php
+					if($_COOKIE['scrollbar']=='yellow')
+					{
+			?>	
+							  </div>
+							  <div id="slider" style="width:4px;height:300px;float:left;position:relative;left:4px;background:#ddd5be;">
+								 <div id="slider_btn" title="滚动条拖拽" style="cursor:s-resize;position:absolute;top:0;left:0;width:4px;background:#999999;height:50px; -moz-border-radius: 4px; -khtml-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;"></div>
+							  </div>
+							  
+							</div>
+<script type="text/javascript" src="{site}/Public/JScript/scrollbar.js" ></script>
+<?php
+					}
+			?>
+								</td></tr>   			<!--文章内容-->
+								<tr><td  align=left valign=bottom style="background:#f8f8f8;">
+									<div style="width:828px;text-align:right">										
+										<?php
+										 $marknum=0;
+										 if(!empty($this->array_two['mark1'])){
+										 foreach($this->array_two['mark1'] as $m1){
+										 	if($m1['tid']==$vo['id']){
+										    $marknum++;
+												echo '<img src="{site}/Public/pic/'.$m1['pic'].'" width=30 height=30 alt="'.$m1['marker'].'----'.$m1['content'].'" title="'.$m1['marker'].'----'.$m1['content'].'">';
+											}
+									}
+								}
+									?>
+										<?php if($marknum!=0) echo "<span title=\"评分次数\" style=\"width:30px;height:30px;background-color:#fff4dd;color:#ff6600;text-align:center;font-size:30px;text-decoration:underline;cursor:pointer;\">".$marknum."</span>"; ?>
+									</div></td></tr>
+								<tr  height=14 style="background-color:#f4f0e2;font-weight:bold;font-size:14px;">
+									<td valign="bottom" style="width:100%;">
+									<div style="width:828px;height:16px;text-align:right">
+									<div style="float:left">
+										<a href="__APP__/Content{url}Quote1{url}id{url}<?php echo $vo['id'];?>{shtml}" style="color:#002d93;">引用</a>&nbsp;&nbsp;
+										<?php
+										 if($vo['zuozhe']=="{user}"){
+										 	?>
+										 	<a href="__APP__/Content{url}edit1{url}id{url}<?php echo $vo['id'];?>{shtml}"  style="color:#002d93;margin-left:4px;">编辑</a>
+										 <?php
+										}
+										?>
+									</div>
+										<a   style="color:#002d93;" href="javascript:void(0)" onclick="showmarkone()">评分</a>
+									</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						</td>
+					</tr>
+					<?php
+				}
+						$num++;
+						if(!empty($vo['zuozhe1'])){
+						?>
+					<tr><td colspan=3>&nbsp;</td></tr>
+					<tr>
+						<td width=130 height=20 style="background-color:#f3bb93"><span onmouseover="showdivn(<?php echo $vo['id2'];?>,event)" onmouseout="hidedivn(<?php echo $vo['id2'];?>)"><?php echo $vo['zuozhe1'];?></span></td>
+	<div id="czzdiv<?php echo $vo['id2'];?>" onmouseover="showdiv4(<?php echo $vo['id2'];?>)" onmouseout="hidediv4(<?php echo $vo['id2'];?>)" style="text-align:left;width:250px;display:none;position:absolute;z-index:99;border:1px solid #95b5d5;background:#ffffff">
+		<span  style="float:left;width:90px;display:inline-block">
+			<a href="javascript:void(0);" onclick="document.getElementById('quser').value='<?php echo $vo['zuozhe1']; ?>';query_username.target='_blank';query_username.submit();"><img  src="{site}/Public/pic/<?php echo $vo['face1'];?>" width=90 height=90 style="border:none"></a>
+		</span>
+		<span  style="float:left;display:inline-block;width:150px;margin-left:4px;margin-top:12px;">
+		<b style="font-size:12px;">军衔:
+							<?php if($vo['fatieshu2']< 30) echo '新兵'; ?>
+							<?php if($vo['fatieshu2']>= 30 && $vo['fatieshu2']< 80 ) echo '列兵'; ?>
+							<?php if($vo['fatieshu2']>= 80 && $vo['fatieshu2']< 150 ) echo '下士'; ?>	
+							<?php if($vo['fatieshu2']>= 150 && $vo['fatieshu2']< 240 ) echo '中士'; ?>	
+							<?php if($vo['fatieshu2']>= 240 && $vo['fatieshu2']< 350 ) echo '上士'; ?>	
+							<?php if($vo['fatieshu2']>= 350 && $vo['fatieshu2']< 480 ) echo '准尉'; ?>	
+							<?php if($vo['fatieshu2']>= 480 && $vo['fatieshu2']< 630 ) echo '少尉'; ?>	
+							<?php if($vo['fatieshu2']>= 630 && $vo['fatieshu2']< 800 ) echo '中尉'; ?>	
+							<?php if($vo['fatieshu2']>= 800 && $vo['fatieshu2']< 1000 ) echo '上尉'; ?>	
+							<?php if($vo['fatieshu2']>= 1000 && $vo['fatieshu2']< 1200 ) echo '大尉'; ?>	
+							<?php if($vo['fatieshu2']>= 1200 && $vo['fatieshu2']< 1400 ) echo '少校'; ?>	
+							<?php if($vo['fatieshu2']>= 1400 && $vo['fatieshu2']< 1600 ) echo '中校'; ?>		
+							<?php if($vo['fatieshu2']>= 1600 && $vo['fatieshu2']< 1800 ) echo '上校'; ?>
+							<?php if($vo['fatieshu2']>= 1800 && $vo['fatieshu2']< 2000 ) echo '大校'; ?>
+							<?php if($vo['fatieshu2']>= 2000 && $vo['fatieshu2']< 2500 ) echo '准将'; ?>
+							<?php if($vo['fatieshu2']>= 2500 && $vo['fatieshu2']< 3000 ) echo '少将'; ?>
+							<?php if($vo['fatieshu2']>= 3000 && $vo['fatieshu2']< 3500 ) echo '中将'; ?>
+							<?php if($vo['fatieshu2']>= 3500 && $vo['fatieshu2']< 4000 ) echo '上将'; ?>
+							<?php if($vo['fatieshu2']>= 4000 && $vo['fatieshu2']< 5000 ) echo '大将'; ?>
+							<?php if($vo['fatieshu2']>= 5000 ) echo '元帅'; ?></b>
+							
+							<br><b style="font-size:12px;">注册时间:
+								<?php echo substr($vo['timezc2'],0,10);?></b>
+							<br><b style="font-size:12px;">发帖数:&nbsp;&nbsp;&nbsp; 
+								<?php echo $vo['fatieshu2'];?></b><br>
+								<b onclick="show('<?php echo $vo['zuozhe1']; ?>')" style="cursor:pointer;font-size:12px;">短消息</b>
+						</span>
+	</div>					
+						<td align=left style="background-color:#f3bb93"><b style="font-size:12px;">发表于<?php echo $vo['time2'];?></b></td><td  style="text-align:right;background-color:#f3bb93"><a style="color:#000000" name=<?php echo $vo['num2'];?>><?php echo $vo['num2'];?>楼</a></td>
+					</tr>
+					<tr >
+					<td colspan=3 valign=top style="background-color:#ffffff">
+							<div style="width:828px;overflow:hidden">
+							<table width=100% height=154 cellspacing=0 cellpadding=0 border=0>
+								<tr ><td  valign=top style="background:#f8f8f8;line-height:30px;"><?php echo $vo['content1'];?></td></tr>
+								<tr><td  align=left valign=bottom style="background:#f8f8f8;">
+									<div style="width:828px;text-align:right">
+									<?php
+										 $marknum=0;
+										 if(!empty($this->array_two['mark2'])){
+										 foreach($this->array_two['mark2'] as $m2){
+										 	if($m2['rid']==$vo['id2']){
+										    $marknum++;
+												echo '<img src="{site}/Public/pic/'.$m2['pic'].'" width=30 height=30 alt="'.$m2['marker'].'----'.$m2['content'].'" title="'.$m2['marker'].'----'.$m2['content'].'">';
+											}
+									}
+								}
+									?>
+										<?php if($marknum!=0) echo "<span title=\"评分次数\" style=\"width:30px;height:30px;background-color:#fff4dd;color:#ff6600;text-align:center;font-size:30px;text-decoration:underline;cursor:pointer;\">".$marknum."</span>"; ?>
+									</div></td></tr>
+								<tr height=14 style="background-color:#f4f0e2;font-weight:bold;font-size:14px;">
+									<td valign="bottom" style="width:100%;">
+									<div style="width:828px;height:16px;text-align:right">
+									<div style="float:left">
+										<a href="__APP__/Content{url}Quote2{url}id2{url}<?php echo $vo['id2'];?>{url}id{url}<?php echo $vo['id'];?>{shtml}"  style="color:#002d93;">引用</a>&nbsp;&nbsp;
+										<?php
+										 if($vo['zuozhe1']=="{user}"){
+										 	?>
+										 	<a href="__APP__/Content{url}edit2{url}id{url}<?php echo $vo['id2'];?>{shtml}"  style="color:#002d93;margin-left:4px;">编辑</a>
+										 <?php
+										}
+										?>
+									</div>
+										<a  style="color:#002d93;" href="javascript:void(0)" onclick="showmark(<?php echo $vo['id2'];?>)">评分</a>
+									</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						</td>
+					</tr>	
+			<div id="mark<?php echo $vo['id2'];?>" style="display:none;">
+				<div align=right style="width:200px;height:20px;background-color:#f1f7da;"><b onclick="turnmark('<?php echo $vo['id2'];?>')" style="cursor:pointer;">关闭</b></div>
+				<iframe src="{site}/ext/mark2.php?id2=<?php echo $vo['id2']; ?>&id=<?php echo getparam('id'); ?>" width=200 height=230 frameBorder=0></iframe>
+			</div>			
+			
+			<?php
+		}
+	}
+		?>
+					<tr>
+						<td colspan=3  style="text-align:right;height:22px;overflow:hidden;margin:0px;padding:0px;">
+							{showx}
+				 		</td>
+					</tr>
+				
+			</table>
+			<p><p>
+			<form name="form1"  method=post action="__APP__/List{url}insert2{shtml}" onsubmit="return check();">
+			<table  border=1  style="width:830px;border:1px solid #a7a6aa">
+				<tr style="display:none;">
+					<td>回复人</td><td><input type=text READONLY name=zuozhe1 value="{user}"></td>
+				</tr>
+				<tr>
+					<td style="border:1px solid #a7a6aa">回复内容</td><td style="border:1px solid #a7a6aa">
+						<div id="edit" style="width:750px;background:#f9f9f9;margin:0 auto;font-weight:normal"></div>
+						<script>web_editor_init("edit","750","160","{site}/ORG/UBB")</script>
+					</td>
+				</tr>
+				<tr>
+					<td style="border:1px solid #a7a6aa"><input type="submit" value="提交回复"></td><td style="border:1px solid #a7a6aa"><input type="reset" value="重置" ></td>
+				</tr>
+			</table>
+		</form>
+		<form name="query_username" method="post" action="__APP__/Content{url}userinfo{shtml}">
+			<input type="hidden" id="quser" name="quser">
+		</form>
+		<div id="markone" style="display:none;">
+			<div align=right style="width:200px;height:20px;background-color:#f1f7da;"><b onclick="turnmarkone()" style="cursor:pointer;">关闭</b></div>
+			<iframe src="{site}/ext/mark1.php?id=<?php echo getparam('id'); ?>" width=200 height=230 frameBorder=0></iframe>
+		</div>		
+		</center>
+		<div style="display: none;cursor:pointer;position:fixed;bottom:100px;right:140px;" id="goTopBtn"><img title="回到顶部" border=0 src="{site}/Public/images/gotop.png"></div>
+		<script type=text/javascript>goTopEx();</script>
+	</body>
+</html>

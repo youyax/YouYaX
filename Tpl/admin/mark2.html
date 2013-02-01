@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>网站管理</title>
+	<style type="text/css">
+		a:active{color:#545ce4}
+		a:visited{color:#545ce4}
+		a:link{color:#545ce4}
+		a:hover{color:#993300}
+		a{text-decoration:none;}
+		table{ border-collapse:collapse;}
+		td{border-color:#e3e6eb}
+		.tr0{background:#f3f3f3}
+		.tr1{background:#ffffff}
+		.hovertr{background:#fff9ee}
+	</style>
+	<script type="text/javascript">
+	function addClass(_this){
+			if(_this.className){
+				_this.className+=" "+"hovertr";
+			}
+		}
+		function removeClass(_this){
+			 _this.className = _this.className.replace(new RegExp("hovertr", "g"), "");
+		}
+		 document.onreadystatechange = function()
+     {           
+     if (document.readyState == "complete")
+      {
+       	parent.parent.document.getElementById("bg").innerHTML="";	
+parent.parent.document.getElementById("bg").style.display="none";	
+if(document.getElementById("message"))
+				{
+					document.getElementById("message").style.display='block';
+			 	setTimeout(function(){
+			 	for(var n=1;n<=40;n++)
+			 	{
+			 		(function(){
+			 			var i=n;
+			 			setTimeout(function(){
+			 				if(i==40){
+			 					document.getElementById("message").style.display='none';
+			 				}
+							document.getElementById("message").style.height=(40-i)+"px";
+			 			},(i+1)*50);
+			 		})();
+			 	}
+			},2000);
+		}
+		var url=self.parent.frames["main"].location.href;
+				var url_array=url.split("=");
+				var page=url_array[1];
+				var uclass=document.getElementsByTagName("a");
+				for(var n in uclass)
+				{
+					if(uclass[n].id==page&&uclass[n].id!=undefined)
+					{
+						uclass[n].style.background="#f2d699";
+					}
+				}
+      }
+     }
+    </script>
+</head>
+<body>
+			<?php
+if($_SESSION['youyax_error']==1)
+{
+?>
+<div id="message" style="width:96%;overflow:hidden;margin:auto;background:url('{site}/Public/images/message_green.gif');color:#6da827;height:40px;line-height:40px;font-size:16px;font-weight:bold;font-family:Tahoma;padding-left:10px;">
+	操作成功！
+</div>
+<?php
+}if($_SESSION['youyax_error']==2)
+{
+?>
+<div id="message" style="width:96%;overflow:hidden;margin:auto;background:url('{site}/Public/images/message_red.gif');color:#ce2700;height:40px;line-height:40px;font-size:16px;font-weight:bold;font-family:Tahoma;padding-left:10px;">
+	操作失败！
+</div>
+<?php
+}
+unset($_SESSION['youyax_error']);
+?>
+	<table width=96% height="auto" cellspacing=0 cellpadding=0 border=1 style="margin:auto;border:1px solid #ccc">
+		<tr>
+			<td height="40" colspan="5" style="line-height:40px;background:url('{site}/Public/images/topbg.jpg')"><span style="font-family:Arial;font-size:17px;color:#222;font-weight:bold;">楼下评分查询</span></td>
+		</tr>
+		<tr>
+			<td height="30" style="line-height:30px;font-family:Arial;font-size:15px;color:#222;font-weight:bold;">评分ID</td>
+			<td style="line-height:30px;font-family:Arial;font-size:15px;color:#222;font-weight:bold;">评分者</td>
+			<td style="line-height:30px;font-family:Arial;font-size:15px;color:#222;font-weight:bold;">图标</td>
+			<td style="line-height:30px;font-family:Arial;font-size:15px;color:#222;font-weight:bold;">评分内容</td>
+			<td align="center" style="line-height:30px;font-family:Arial;font-size:15px;color:#222;font-weight:bold;">操作</td>
+		</tr>
+		<tr><td colspan=5 align=right>{page}</td></tr>
+<?php
+ if(!empty($this->array_two['data'])){
+ 	foreach($this->array_two['data'] as $vo){
+?>
+			<tr onmouseover="addClass(this)" onmouseout="removeClass(this)">	
+				<td height="30" style="line-height:30px;font-family:Arial;font-size:12px;color:#555;">
+						<?php
+					echo $vo['rid'];
+				?>
+				</td>
+				<td height="30" style="line-height:30px;font-family:Arial;font-size:12px;color:#555;">
+						<?php
+					echo $vo['marker'];
+				?>
+				</td>
+				<td height="30" style="line-height:30px;font-family:Arial;font-size:12px;color:#555;">
+						<?php
+					echo $vo['pic'];
+				?>
+				</td>
+				<td height="30" style="line-height:30px;font-family:Arial;font-size:12px;color:#555;">
+						<?php
+					echo $vo['content'];
+				?>
+				</td>
+				<td align="center" height="30" style="line-height:30px;font-family:Arial;font-size:12px;color:#555;"><a  style="color:#222;font-size:12px;font-family:Tahoma;font-weight:bold" href="__APP__/admin{url}mark2_del{url}id{url}<?php echo $vo['id'];?>{shtml}" onclick="return confirm('您确定要删除?');">删除</a></td>
+			</tr>
+<?php
+	}
+}
+?>
+	</table>
+	<script>
+		var tr=document.getElementsByTagName("tr");
+		for(var n=0;n<tr.length;n++)
+		{
+			if(n==0||n==1) continue;
+			if(n%2==0&&n!=0)
+			{
+				tr[n].className="tr0";	
+			}else{
+				tr[n].className="tr1";	
+			}
+		}
+	</script>
+</body>
+</html>

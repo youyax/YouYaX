@@ -1,0 +1,18 @@
+﻿#web_editor_family{width:82px;height:22px;float:left;margin-top:4px;display:inline-block;border:1px solid #efefef;}
+#web_editor_family select{height:22px;}
+#web_editor_font{width:61px;height:22px;float:left;margin-left:-2px;margin-top:4px;display:inline-block;border:1px solid #efefef;}
+#web_editor_font select{height:22px;}
+#web_editor_bold{float:left;margin-left:-4px;margin-top:4px;width:24px;height:22px;display:inline-block;border:1px solid #efefef;}
+#web_editor_tilt{float:left;margin-left:0px;margin-top:4px;width:24px;height:22px;display:inline-block;border:1px solid #efefef;}
+#web_editor_under{float:left;margin-left:0px;margin-top:4px;width:24px;height:22px;display:inline-block;border:1px solid #efefef;}
+#web_editor_color{float:left;margin-left:0px;margin-top:4px;width:24px;height:22px;display:inline-block;border:1px solid #efefef;}
+#web_editor_url{float:left;margin-left:-4px;margin-top:4px;width:24px;height:22px;display:inline-block;border:1px solid #efefef;}
+#web_editor_face{float:left;margin-left:0px;margin-top:4px;width:24px;height:22px;display:inline-block;border:1px solid #efefef;}
+#web_editor_img{float:left;margin-left:-4px;margin-top:4px;width:24px;height:22px;display:inline-block;border:1px solid #efefef;}
+#web_editor_music{float:left;margin-left:-4px;margin-top:4px;width:24px;height:22px;display:inline-block;border:1px solid #efefef;}
+#web_editor_flash{float:left;margin-left:-4px;margin-top:4px;width:24px;height:22px;display:inline-block;border:1px solid #efefef;}
+#web_editor_code{float:left;margin-left:-4px;margin-top:4px;width:24px;height:22px;display:inline-block;border:1px solid #efefef;}
+#web_editor_about{float:left;margin-left:-4px;margin-top:4px;width:24px;height:22px;display:inline-block;border:1px solid #efefef;}
+#web_editor_con1{clear:both;word-wrap:break-word; overflow-y:auto;border:1px solid #efefef;background:#ffffff;}
+#web_editor_con2{clear:both;width:99%;word-wrap:break-word; overflow-y:auto;display:none;border:1px solid #efefef;background:#ffffff;}
+textarea{outline:none}

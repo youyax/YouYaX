@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>网站管理</title>
+	<style type="text/css">
+		a:active{color:#545ce4}
+		a:visited{color:#545ce4}
+		a:link{color:#545ce4}
+		a:hover{color:#993300}
+		a{text-decoration:none;}
+		table{ border-collapse:collapse;}
+		td{border-color:#e3e6eb}
+		.tr0{background:#f3f3f3}
+		.tr1{background:#ffffff}
+		.hovertr{background:#fff9ee}
+	</style>
+	<script type="text/javascript">
+	function addClass(_this){
+			if(_this.className){
+				_this.className+=" "+"hovertr";
+			}
+		}
+		function removeClass(_this){
+			 _this.className = _this.className.replace(new RegExp("hovertr", "g"), "");
+		}
+		function show(id){
+			var tdiv=document.createElement("div");
+			tdiv.id="mop";
+			tdiv.style.cssText="width:300px;height:110px;position:fixed;margin:auto;left:0; right:0; top:0; bottom:0;border:1px solid #e9e9e9;z-index:999";
+			tdiv.innerHTML='<form action="__APP__/admin{url}movetalk{shtml}" method=post target="main">'+
+										 '<table  style="background:#e7e7e7" width=100%  height="110" cellspacing=0 cellpadding=0>'+
+										 '<tr style="background:#fff9ee"><td  align="right" style="font-family:Arial;color:#333;font-size:12px"><span style="cursor:pointer" onclick="document.getElementById(\'mop\').parentNode.removeChild(document.getElementById(\'mop\'));">关闭</span></td></tr>'+
+											'<tr><td style="font-family:Arial;color:#333;font-size:16px">选择移动到的版块</td></tr>'+
+											'<tr><td><select name="parentid"><option>--请选择--</option><list><option value="{data1.id}">{data1.szone}</option></list></select></td></tr>'+
+											'<input type="hidden" name="id" value="'+id+'">'+
+											'<tr><td colspan=2><input type="image" src="{site}/Public/images/edit.gif"></td></tr>'+
+										' </table>'+
+										'</form>';
+			document.body.appendChild(tdiv);
+		}
+		function pop(id){
+			var tdiv=document.createElement("div");
+			tdiv.id="popp";
+			tdiv.style.cssText="width:300px;height:110px;position:fixed;margin:auto;left:0; right:0; top:0; bottom:0;border:1px solid #e9e9e9;z-index:999";
+			tdiv.innerHTML='<form action="__APP__/admin{url}editblock{shtml}" method=post target="main">'+
+										 '<table  style="background:#e7e7e7" width=100%  height="100" cellspacing=0 cellpadding=0>'+
+										 '<tr style="background:#fff9ee"><td  align="right" style="font-family:Arial;color:#333;font-size:12px"><span style="cursor:pointer" onclick="document.getElementById(\'popp\').parentNode.removeChild(document.getElementById(\'popp\'));">关闭</span></td></tr>'+
+											'<tr><td style="font-family:Arial;color:#333;font-size:16px">输入新的大版块名称</td></tr>'+
+											'<tr><td><input type="text" name="bzone" style="width:150px"></td></tr>'+
+											'<input type="hidden" name="id" value="'+id+'">'+
+											'<tr><td colspan=2><input type="image" src="{site}/Public/images/edit.gif"></td></tr>'+
+										' </table>'+
+										'</form>';
+			document.body.appendChild(tdiv);
+		}
+		function display(param)
+		{
+			param=param.split("=");
+			if(param[0]=='')
+				param[0]='null';
+			var h=window.screen.availHeight;
+			var w=parent.document.documentElement.clientWidth;
+			var bg=document.createElement("div");
+			bg.id="mbg";
+			bg.style.cssText="position:absolute;left:0;top:0;width:"+w+"px;height:"+h+"px;z-index:10;filter:alpha(opacity=70);opacity:0.7;-moz-opacity:0.7;background:#333333";
+			parent.parent.document.body.appendChild(bg);
+			var dv=document.createElement("div");
+			dv.id="mdv";
+			dv.style.cssText="position:fixed;left:0;top:0;bottom:0;right:0;margin:auto;width:400px;height:200px;z-index:20;";
+			dv.innerHTML='<table width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#fff">'+
+			'<tr><td height="22"  align="left" style="line-height:22px;background:#e8e8e8">ID—'+param[6]+'</td><td height="22"  align="right" style="line-height:22px;background:#e8e8e8"><span style="font-size:12px;font-family:Tahoma;margin-right:4px;cursor:pointer" onclick="document.getElementById(\'mbg\').parentNode.removeChild(document.getElementById(\'mbg\'));document.getElementById(\'mdv\').parentNode.removeChild(document.getElementById(\'mdv\'));">close</span></td></tr>'+
+			'<tr><td style="font-size:12px;font-family:Tahoma">辅助ID</td><td>'+param[0]+'</td></tr>'+
+			'<td style="font-size:12px;font-family:Tahoma">回复时间</td><td>'+param[1]+'</td></tr>'+
+			'<td style="font-size:12px;font-family:Tahoma">图标</td><td>'+param[2]+'</td></tr>'+
+			'<td style="font-size:12px;font-family:Tahoma">注册时间</td><td>'+param[3]+'</td></tr>'+
+			'<td style="font-size:12px;font-family:Tahoma">发帖数</td><td>'+param[4]+'</td></tr>'+
+			'<td style="font-size:12px;font-family:Tahoma">版块</td><td>'+param[5]+'</td></tr>'+
+			'</table>';
+			parent.parent.document.body.appendChild(dv);
+		}
+		 document.onreadystatechange = function()
+     {
+     if(document.readyState == "complete")
+      {
+       	parent.parent.document.getElementById("bg").innerHTML="";	
+parent.parent.document.getElementById("bg").style.display="none";	
+if(document.getElementById("message"))
+				{
+					document.getElementById("message").style.display='block';
+			 	setTimeout(function(){
+			 	for(var n=1;n<=40;n++)
+			 	{
+			 		(function(){
+			 			var i=n;
+			 			setTimeout(function(){
+			 				if(i==40){
+			 					document.getElementById("message").style.display='none';
+			 				}
+							document.getElementById("message").style.height=(40-i)+"px";
+			 			},(i+1)*50);
+			 		})();
+			 	}
+			},2000);
+		}
+				var url=self.parent.frames["main"].location.href;
+				var url_array=url.split("=");
+				var page=url_array[1];
+				var uclass=document.getElementsByTagName("a");
+				for(var n in uclass)
+				{
+					if(uclass[n].id==page&&uclass[n].id!=undefined)
+					{
+						uclass[n].style.background="#f2d699";
+					}
+				}
+      }
+     }
+    </script>
+</head>
+<body>
+	<?php
+if($_SESSION['youyax_error']==1)
+{
+?>
+<div id="message" style="width:96%;overflow:hidden;margin:auto;background:url('{site}/Public/images/message_green.gif');color:#6da827;height:40px;line-height:40px;font-size:16px;font-weight:bold;font-family:Tahoma;padding-left:10px;">
+	操作成功！
+</div>
+<?php
+}if($_SESSION['youyax_error']==2)
+{
+?>
+<div id="message" style="width:96%;overflow:hidden;margin:auto;background:url('{site}/Public/images/message_red.gif');color:#ce2700;height:40px;line-height:40px;font-size:16px;font-weight:bold;font-family:Tahoma;padding-left:10px;">
+	操作失败！
+</div>
+<?php
+}
+unset($_SESSION['youyax_error']);
+?>
+	<table width=96% height="auto" cellspacing=0 cellpadding=0 border=1 style="margin:auto;border:1px solid #ccc">
+		<tr>
+			<td height="40" colspan="6" style="line-height:40px;background:url('{site}/Public/images/topbg.jpg')"><span style="font-family:Arial;font-size:17px;color:#222;font-weight:bold;">回复贴查询</span></td>
+		</tr>
+		<tr>
+			<td height="30" style="line-height:30px;font-family:Arial;font-size:15px;color:#222;font-weight:bold;">ID</td>
+			<td style="line-height:30px;font-family:Arial;font-size:15px;color:#222;font-weight:bold;">回复人</td>
+			<td style="line-height:30px;font-family:Arial;font-size:15px;color:#222;font-weight:bold;">内容</td>
+			<td style="line-height:30px;font-family:Arial;font-size:15px;color:#222;font-weight:bold;">外键ID</td>
+			<td style="line-height:30px;font-family:Arial;font-size:15px;color:#222;font-weight:bold;">楼层</td>
+			<td align="center" style="line-height:30px;font-family:Arial;font-size:15px;color:#222;font-weight:bold;">操作</td>
+		</tr>
+		<tr><td colspan=6 align=right>{page}</td></tr>
+<?php
+ if(!empty($this->array_two['list'])){
+ 	foreach($this->array_two['list'] as $vo){
+?>
+			<tr onmouseover="addClass(this)" onmouseout="removeClass(this)">	
+				<td height="30" style="line-height:30px;font-family:Arial;font-size:12px;color:#555;"><?php echo $vo['id2']; ?></td>
+				<td height="30" style="line-height:30px;font-family:Arial;font-size:12px;color:#555;"><?php echo $vo['zuozhe1']; ?></td>
+				<?php
+					$sql="select title from {db_prefix}talk where id=".$vo['rid'];
+					$arr=mysql_fetch_array(mysql_query($sql));
+				?>
+				<td height="30" style="line-height:30px;font-family:Arial;font-size:12px;color:#555;" title="<?php echo $arr['title'];?> -- [ <?php echo fname($vo['parentid2']); ?> ]"><?php echo substr(strip_tags($vo['content1']),0,30); ?></td>
+				<td height="30" style="line-height:30px;font-family:Arial;font-size:12px;color:#555;"><?php echo $vo['rid']; ?></td>
+				<td height="30" style="line-height:30px;font-family:Arial;font-size:12px;color:#555;"><?php echo $vo['num2']; ?></td>
+				<td align="right" height="30" style="line-height:30px;font-family:Arial;font-size:12px;color:#555;">
+					<a style="color:#222;font-size:12px;font-family:Tahoma;font-weight:bold" href="javascript:void(0)" onclick="display('<?php echo $vo['fuzhuid']; ?>=<?php echo $vo['time2']; ?>=<?php echo $vo['face1']; ?>=<?php echo $vo['timezc2']; ?>=<?php echo $vo['fatieshu2']; ?>=<?php echo $vo['parentid2']; ?>=<?php echo $vo['id2']; ?>');">信息</a>&nbsp;
+					<a style="color:#222;font-size:12px;font-family:Tahoma;font-weight:bold" target="_blank" href="__APP__/Content{url}index{url}id{url}<?php echo $vo['rid'];?>{shtml}#<?php echo $vo['num2'];?>">查看</a>&nbsp;					
+					<a style="color:#222;font-size:12px;font-family:Tahoma;font-weight:bold" href="__APP__/admin{url}reply_del{url}id2{url}<?php echo $vo['id2']; ?>{shtml}" onclick="return confirm('您确定要删除?');">删除</a>
+				</td>
+			</tr>
+<?php
+ }
+}
+?>
+	</table>
+	<script>
+		var tr=document.getElementsByTagName("tr");
+		for(var n=0;n<tr.length;n++)
+		{
+			if(n==0||n==1) continue;
+			if(n%2==0&&n!=0)
+			{
+				tr[n].className="tr0";	
+			}else{
+				tr[n].className="tr1";	
+			}
+		}
+	</script>
+</body>
+</html>

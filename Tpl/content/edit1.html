@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>编辑帖子</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+			<script type="text/javascript" src="{site}/ORG/UBB/ORG/UBB/edit.js"></script>
+		<link rel="stylesheet" href="{site}/ORG/UBB/ORG/UBB/edit.css" type="text/css">
+		<script> 
+		      function check()
+		      {
+		      	if(document.getElementById('content').value=='')
+		      	{
+		      		Tip('编辑内容不能为空',1);
+							if(!document.getElementById('Tip'))
+							{
+								alert('编辑内容不能为空!');
+							}
+		      		return false;
+		      		}
+		      		else
+		      			{
+		      				return true;
+		      			}
+		      }
+		</script>
+	</head>
+	<body bgcolor="#fafafa">
+	<script type="text/javascript" src="{site}/Public/JScript/public.js" ></script>
+	<script type="text/javascript" src="{site}/Public/JScript/Tip.js" ></script>
+		<center>
+			<form name=form id=form method=post action="__APP__/List{url}editupdate1{shtml}" onsubmit="return check()">
+				<table width=800 border=1 cellspacing=0 cellpadding=0 style="border-collapse:collapse;border:1px solid #a7a6aa">
+					<tr style="display:none;"><td width=50>发帖人</td><td><input name=zuozhe id=zuozhe READONLY value="{user}"></td></tr>
+					<tr><td width=50 style="border:1px solid #a7a6aa">内容</td><td align="left" style="border:1px solid #a7a6aa"><input type=hidden name=id value="{result1->id}">
+					<div id="edit" style="width:744px;background:#f9f9f9;margin:0 auto"></div>
+							<script>web_editor_init("edit","750","160","{site}/ORG/UBB")</script>
+					<?php 
+						$con=strip_tags($this->array_array['result1']['content'],"<br>");
+						$val=addslashes(htmlspecialchars_decode($con,ENT_QUOTES));
+						$sub = array("<script>" => "&lt;script&gt;", "</script>" => "&lt;/script&gt;");
+						$val=strtr($val,$sub);
+						 echo '<script>
+						    	document.getElementById("web_editor_con2").value="'.$val.'";
+						  </script>';
+						echo '<script>document.getElementById("web_editor_con2").value=document.getElementById("web_editor_con2").value.replace(/<br>/g,"\r\n");</script>';
+						if(strpos($val,"&lt;script&gt;")!==false){
+						  	echo '<script>document.getElementById("web_editor_con2").value=document.getElementById("web_editor_con2").value.replace(/&lt;script/g,"<script").replace(/&lt;\/script/g,"</script");</script>';
+						}
+						if(strpos($val,"&lt;/script&gt;")!==false){
+						  echo '<script>document.getElementById("web_editor_con2").value=document.getElementById("web_editor_con2").value.replace(/script&gt;/g,"script>");</script>';
+						}
+					?>
+					</td></tr>
+					<tr><td align="left" style="border:1px solid #a7a6aa"><input type=submit value="发帖"></td><td align="left" style="border:1px solid #a7a6aa"><input type=reset value="重置"></td></tr>
+				</table>
+			</form>
+		</center>
+	</body>
+</html>
+					

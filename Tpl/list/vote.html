@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<title>发表投票</title>
+			<link rel="stylesheet" href="{site}/ORG/UBB/ORG/UBB/edit.css" type="text/css">
+		<style type="text/css">
+			body{font-family:Arial;}
+			#form .error{color:red};
+		</style>
+		<script type="text/javascript" src="{site}/ORG/UBB/ORG/UBB/edit.js"></script>
+		<script charset="utf-8" src="{site}/Public/JScript/fatie.js"></script>
+		<script>
+			function add(){
+				var obj=document.getElementById("voteul");
+				var liobj=document.createElement("li");
+				liobj.style.cssText="text-align:left;height:24px;line-height:24px;margin-top:4px;";
+				liobj.innerHTML='<input type="text" name="lival[]" style="width:200px;border: 1px #DFDFDF solid;-webkit-border-radius: 5px;border-radius: 5px;height:20px;"><a style="margin-left:5px;font-size:12px;color:#F91B00" href="javascript:void(0)" onclick="del(this)">删除</a>';
+				obj.appendChild(liobj);
+			}
+			function del(_this){
+				var obj=_this.parentNode.parentNode;
+				obj.removeChild(_this.parentNode);
+			}
+		</script>
+	</head>
+	<body bgcolor="#fafafa">
+		<center>
+			<form name=form id=form method=post action="__APP__/List{url}insert1{shtml}" onsubmit="return check();">
+				<table width=800 border=1 cellspacing=0 cellpadding=0 style="border-collapse:collapse;border:1px solid #a7a6aa">
+					<tr style="display:none;"><td align="left" width=50>发帖人</td><td align="left"><input name=zuozhe  READONLY value="{user}"><span id="ero" style="color:red;font-size:12px;"></span></td></tr>
+					<tr><td align="left" width=50 style="border:1px solid #a7a6aa">标题</td><td align="left" style="border:1px solid #a7a6aa"><input name=title id=title MAXLENGTH=30 size=50><span id="titerror" style="background:#fffbd9;color:#7d7d7d"></span></td></tr>
+					<tr><td align="left" width=50 style="border:1px solid #a7a6aa">选项</td><td align="left" style="border:1px solid #a7a6aa">
+						<div style="width:100%;">
+							<ul id="voteul" style="margin:0px;padding:0px;list-style-type:none;">
+								<li style="text-align:left;height:24px;line-height:24px;margin-top:4px;"><input type="text" name="lival[]" style="width:200px;border: 1px #DFDFDF solid;-webkit-border-radius: 5px;border-radius: 5px;height:20px;"><a style="margin-left:5px;font-size:12px;color:#F91B00" href="javascript:void(0)" onclick="del(this)">删除</a></li>
+								<li style="text-align:left;height:24px;line-height:24px;margin-top:4px;"><input type="text" name="lival[]" style="width:200px;border: 1px #DFDFDF solid;-webkit-border-radius: 5px;border-radius: 5px;height:20px;"><a style="margin-left:5px;font-size:12px;color:#F91B00" href="javascript:void(0)" onclick="del(this)">删除</a></li>
+							</ul>
+							<a style="font-size:13px;color:#F91B00" href="javascript:void(0)" onclick="add()">增加一项</a><span style="font-size:12px;">(最多15个选项,选项最长20个字符)</span>
+						</div>
+					</td></tr>
+					<tr><td align="left" width=50 style="border:1px solid #a7a6aa">内容</td><td align="left" style="border:1px solid #a7a6aa">
+					<div id="edit" style="width:744px;background:#f9f9f9;margin:0 auto"></div>
+						<script>web_editor_init("edit","750","160","{site}/ORG/UBB")</script>
+					<span id="conerror"  style="background:#fffbd9;color:#7d7d7d"></span></td></tr>
+					<tr><td align="left" style="border:1px solid #a7a6aa"><input type=submit value="发帖"></td><td style="border:1px solid #a7a6aa" align="left"><input type="reset" value="重置"></td></tr>
+				</table>
+			</form>
+		</center>
+	</body>
+</html>
+					

@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<title>个人资料</title>
+<style type="text/css">
+	*{margin:0;padding:0}
+	body{text-align:center;font-family:Arial;}
+	#wrap{margin:0 auto;width:700px;border:1px dashed #a7a6aa;display:table;background:#ffffff;}
+	#main{width:600px;min-height:1px;float:left;display:block;}
+	#sidebar{width:98px;float:left;}
+	#sidebar ul{margin:0;padding:0;}
+	#sidebar ul li{width:98px;list-style-type:none;text-align:left;line-height:30px;}
+	#sidebar ul li a{color:#cc9966;font-size:13px;font-weight:bold;text-decoration:none;}
+	input[type=submit]{width:40px;height:24px;font-size:12px;line-height:24px;background:url('{site}/Public/images/button.png');border:none;}
+</style>
+<script language=javascript>
+	function showimage(idimg)
+	{
+		document.images.showimages.src="{site}/Public/pic/"+idimg.options[idimg.selectedIndex].value;
+	}
+</script>
+	</head>
+	<body bgcolor="#fefcf4">
+	<div id="wrap">
+			<h5>个人中心</h5>
+<div id="main">
+		<form method=post action="__APP__/Index{url}saveself{shtml}">			
+				<table width=600 border=0 cellpadding=0 cellspacing=0 style="border-bottom:1px dashed #a7a6aa">
+					<tr>
+						<td align="left">选择头像:
+            <SELECT onchange="showimage(this)" size=1 name=face >
+            	<OPTION   selected>---男孩---</OPTION>
+              <OPTION value=01.gif>01</OPTION>
+              <OPTION value=02.gif>02</OPTION>
+              <OPTION value=03.gif>03</OPTION>
+              <OPTION value=04.gif>04</OPTION>
+              <OPTION value=05.gif>05</OPTION>
+              <OPTION value=06.gif>06</OPTION>
+              <OPTION value=07.gif>07</OPTION>
+              <OPTION value=08.gif>08</OPTION>
+              <OPTION value=09.gif>09</OPTION>
+              <OPTION value=10.gif>10</OPTION>
+							<OPTION >---女孩---</OPTION>
+              <OPTION value=11.gif>11</OPTION>
+              <OPTION value=12.gif>12</OPTION>
+              <OPTION value=13.gif>13</OPTION>
+              <OPTION value=14.gif>14</OPTION>
+              <OPTION value=15.gif>15</OPTION>
+              <OPTION value=16.gif>16</OPTION>
+              <OPTION value=17.gif>17</OPTION>
+              <OPTION value=18.gif>18</OPTION>
+              <OPTION value=19.gif>19</OPTION>
+              <OPTION value=20.gif>20</OPTION>
+              <OPTION value=21.gif>21</OPTION>
+              <OPTION value=22.gif>22</OPTION>
+              <OPTION value=23.gif>23</OPTION>
+            </SELECT>
+            <IMG id=showimages src="{site}/Public/pic/01.gif" name=showimages width="80" height="80">
+           </td>
+          </tr>
+          <tr align="left">
+          	<td><input type=submit value="保存"></td>
+          </tr>
+        </table>
+      </form>
+      <br>
+        <form method=post action="__APP__/Index{url}upload{shtml}" enctype="multipart/form-data">
+        <table width=600 border=0 cellpadding=0 cellspacing=0>
+          <tr>
+       		<td align="left">自定义头像</td><td><input type=file name=file></td>
+       	</tr>
+       	<tr>
+       		<td align="left"><input type=submit name=sub value="上传"></td>
+       	</tr>
+         </table>       
+    </form>
+        </div>
+    <div id="sidebar">
+    	<ul>
+    		<li><a href="{site}"><font color=red>退出</font></a></li>
+    		<li><a href="__APP__/Index{url}self{shtml}">个人资料</a></li>
+    		<li><a href="__APP__/Index{url}chpsd{shtml}">更改密码</a></li>
+    		<li><a href="__APP__/Message{url}show{shtml}">我的消息</a></li>
+    		<li><a href="__APP__/Index{url}mypub{shtml}">发布帖子</a></li>
+    		<li><a href="__APP__/Index{url}myrep{shtml}">回复帖子</a></li>
+    	</ul>
+    </div>
+  </div>
+  <div id="foot" style="margin-bottom:10px;color:#a5a5a5;text-align:center;font-size:12px;font-family:Tahoma;height:14px;line-height:12px;">{site_config->site_foot}</div>
+   </body>
+</html>
+           
