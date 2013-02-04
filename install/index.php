@@ -88,7 +88,7 @@ if ($status != "complete") {
 if ($status != "complete") {
 ?>
 <form method="post" action="index.php?step=2">
-	<p>请在下方填写您的数据库连接信息。如果您不确定，请联系您的服务提供商。</p>
+	<p>请在下方填写您的数据库连接信息。如果您不确定，请联系您的服务提供商。PHP版本<5.3。</p>
 	<table class="form-table">
 		<tr>
 			<th scope="row"><label for="dbname">数据库名</label></th>
