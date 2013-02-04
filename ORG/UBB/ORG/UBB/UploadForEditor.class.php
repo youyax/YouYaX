@@ -38,7 +38,15 @@ class Upload
                     $newpic = time() . "." . $back;
                     move_uploaded_file($_FILES["file"]["tmp_name"], $this->path . "/" . $newpic);
                     echo "Stored in: " . $this->path . "/" . $_FILES["file"]["name"];
-                    echo '<script>parent.document.getElementById("web_editor_con2").value+="[img=' . $this->conf['SITE'] . "/Public/upload/" . $newpic . '][/img]";</script>';
+                    echo '<script>
+                     if (parent.document.all) {
+                	parent.document.getElementById("web_editor_con2").value += "[img=' . $this->conf['SITE'] . "/Public/upload/" . $newpic . '][/img]";
+        }else {
+            var obj = parent.document.getElementById("web_editor_con2");
+            var startPos = obj.selectionStart;
+            var endPos = obj.selectionEnd;
+             parent.document.getElementById("web_editor_con2").value = obj.value.substring(0, startPos) + "[img=' . $this->conf['SITE'] . "/Public/upload/" . $newpic . '][/img]" + obj.value.substring(endPos);
+        }</script>';
                 }
             }
         } else {
