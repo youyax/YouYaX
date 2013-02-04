@@ -129,7 +129,7 @@ class YouYaX
                     $sub = file_get_contents($v);
                     foreach ($inc1 as $v1) {
                         //区分大小写匹配
-                        if (ereg($v, $v1)) {
+                        if (preg_match_all("#$v#", $v1,$tmp)) {
                             $txt = str_replace($v1, $sub, $txt);
                         }
                     }
@@ -195,7 +195,7 @@ class YouYaX
         if ($return) {
             try {
                 foreach ($match[1] as $lv) {
-                    if (eregi("<\s*loop\s*>", $lv)) {
+                    if (preg_match_all("/<\s*loop\s*>/", $lv, $tmp)) {
                         throw new Exception(htmlspecialchars("<loop>标签不能嵌套<loop>！"), "304");
                         break;
                     }
@@ -229,7 +229,7 @@ class YouYaX
                     $result5 .= str_replace("{" . $result3 . "}", $v, $r1);
                 }
                 foreach ($result0 as $r0) {
-                    if (ereg($result2, $r0))
+                    if (preg_match_all("#$result2#", $r0, $tmp))
                         $txt = str_replace($r0, $result5, $txt);
                 }
             }
@@ -246,7 +246,7 @@ class YouYaX
         if ($return) {
             try {
                 foreach ($tar[1] as $vv) {
-                    if (eregi("<\s*list\s*>", $vv)) {
+                    if (preg_match_all("/<\s*list\s*>/", $vv, $tmp)) {
                         throw new Exception(htmlspecialchars("<list>标签不能嵌套<list>！"), "305");
                         break;
                     }
@@ -278,7 +278,7 @@ class YouYaX
                     $tar3  = $tar2[0]; //{array_two.id}
                     preg_match_all("/\{(.*)\}/", $tar3, $tt1);
                     try {
-                        if (!ereg("\.", $tt1[1][0]))
+                        if (!preg_match_all("/\./", $tt1[1][0], $tmp))
                             throw new Exception(htmlspecialchars("<list>标签解析出错，仅支持二维数组！"), "307");
                     }
                     catch (Exception $e) {
@@ -299,7 +299,7 @@ class YouYaX
                                 //var_dump($str);exit;
                                 $erwei44 = $str1[0]; //array_two
                                 $erwei55 = $str1[1]; //1st id   2nd user
-                                if (ereg("\|", $erwei55)) {
+                                if (preg_match_all("/\|/", $erwei55, $tmp)) {
                                     $erwei55_tmp = explode("|", $erwei55);
                                     $final       = str_replace("{" . $erwei44 . "." . $erwei55 . "}", $erwei55_tmp[1]($two[$erwei55_tmp[0]]), $final);
                                     //var_dump($two[$erwei55]);exit;
@@ -317,7 +317,6 @@ class YouYaX
                     }
                     //var_dump($final);exit;
                     //var_dump($final2);exit;
-                    //if(ereg($f1,$f2))
                     if (strpos($f2, $f1)) {
                         $txt = str_replace($f2, $final2, $txt); //--二维数组结束
                     }
@@ -391,7 +390,7 @@ class YouYaX
     public function find($table, $ext = "string", $param)
     {
         //在 param 中寻找与给定的正则表达式 pattern 所匹配的子串
-        if (ereg("=", $param)) {
+        if (preg_match_all("/=/", $param, $tmp)) {
             $sql = "select * from " . $table . " where " . $param;
         } else {
             $param = "id=$param";
@@ -421,7 +420,7 @@ class YouYaX
     }
     public function save($data, $table, $param)
     {
-        if (!ereg("[=><!]", $param))
+        if (!preg_match_all("/[=><!]/", $param, $tmp))
             $param = "id=$param";
         foreach ($data as $k => $v) {
             $sql = "update " . $table . " set " . $k . "='" . $v . "' where " . $param;
@@ -430,7 +429,7 @@ class YouYaX
     }
     public function delete($table, $param)
     {
-        if (!ereg("[=><!]", $param))
+        if (!preg_match_all("/[=><!]/", $param, $tmp))
             $param = "id=$param";
         $sql = "delete from " . $table . " where " . $param;
         mysql_query($sql);
